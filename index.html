@@ -2,69 +2,101 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Input/Output in Competitive Programming</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚀 Fast I/O Guide for Competitive Programming</title>
   <style>
     @page {
       margin: 1cm;
       size: A4;
     }
     
+    :root {
+      --primary-color: #60a5fa;
+      --secondary-color: #93c5fd;
+      --tertiary-color: #bfdbfe;
+      --bg-color: #1e293b;
+      --bg-secondary: #334155;
+      --text-color: #f8fafc;
+      --border-color: #475569;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
     body {
       font-family: system-ui, -apple-system, sans-serif;
       line-height: 1.6;
-      max-width: 210mm; /* A4 width */
+      max-width: min(90%, 210mm); /* A4 width with mobile responsiveness */
       margin: 0 auto;
-      padding: 20px;
-      color: #f8fafc;
-      background: #1e293b;
+      padding: clamp(10px, 3vw, 20px);
+      color: var(--text-color);
+      background: var(--bg-color);
+      background-image: linear-gradient(45deg, #1e293b 0%, #0f172a 100%);
     }
     
     h1 {
-      color: #60a5fa;
-      font-size: 28pt;
+      color: var(--primary-color);
+      font-size: clamp(24px, 5vw, 28pt);
       margin-bottom: 1.5em;
       text-align: center;
       page-break-after: avoid;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 0.5px;
     }
     
     h2 {
-      color: #93c5fd;
-      font-size: 22pt;
+      color: var(--secondary-color);
+      font-size: clamp(20px, 4vw, 22pt);
       margin-top: 2em;
-      border-bottom: 3px solid #475569;
+      border-bottom: 3px solid var(--border-color);
       padding-bottom: 0.5em;
       page-break-after: avoid;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
     }
     
     h3 {
-      color: #bfdbfe;
-      font-size: 16pt;
+      color: var(--tertiary-color);
+      font-size: clamp(16px, 3vw, 16pt);
       page-break-after: avoid;
       margin-top: 1.5em;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
     
     .language-section {
-      background: #334155;
+      background: var(--bg-secondary);
       border-radius: 12px;
-      padding: 25px;
+      padding: clamp(15px, 4vw, 25px);
       margin: 20px 0;
-      border: 1px solid #475569;
+      border: 1px solid var(--border-color);
       page-break-inside: avoid;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .language-section:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
     }
     
     pre {
-      background: #1e293b;
-      color: #e2e8f0;
-      padding: 20px;
+      background: var(--bg-color);
+      color: var(--text-color);
+      padding: clamp(10px, 3vw, 20px);
       border-radius: 8px;
       overflow-x: auto;
       margin: 15px 0;
-      border: 1px solid #475569;
+      border: 1px solid var(--border-color);
       white-space: pre-wrap;
-      font-size: 12pt;
+      font-size: clamp(11pt, 2vw, 12pt);
       box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+      background: linear-gradient(to bottom, var(--bg-color), var(--bg-secondary));
     }
     
     code {
@@ -73,30 +105,72 @@
     }
 
     strong {
-      color: #60a5fa;
+      color: var(--primary-color);
       font-weight: 600;
+      text-shadow: 0 0 10px rgba(96,165,250,0.3);
     }
 
     .section {
       page-break-inside: avoid;
-      margin: 40px 0;
+      margin: clamp(20px, 5vw, 40px) 0;
+      animation: fadeIn 0.5s ease-in;
     }
 
     p {
-      font-size: 14pt;
+      font-size: clamp(12pt, 2.5vw, 14pt);
       margin: 20px 0;
       line-height: 1.8;
+      letter-spacing: 0.2px;
     }
 
-    /* Syntax highlighting */
+    /* Syntax highlighting with enhanced contrast */
     .keyword { color: #f472b6; }
     .string { color: #a5b4fc; }
-    .comment { color: #64748b; font-style: italic; }
+    .comment { color: #94a3b8; font-style: italic; }
     .number { color: #fbbf24; }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Dark mode support */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg-color: #f8fafc;
+        --bg-secondary: #e2e8f0;
+        --text-color: #1e293b;
+        --border-color: #cbd5e1;
+      }
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        max-width: 100%;
+        padding: 0;
+      }
+      
+      .language-section {
+        break-inside: avoid;
+      }
+    }
+
+    /* Mobile optimizations */
+    @media (max-width: 768px) {
+      pre {
+        font-size: 11pt;
+      }
+      
+      .language-section {
+        margin: 15px 0;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>How to Read Problems and Handle Input/Output in Competitive Programming (C++ & Python)</h1>
+  <h1>🚀 Mastering Fast I/O in Competitive Programming: C++ & Python Guide</h1>
   
   <p>In competitive programming, efficient input and output handling is crucial. Below is a <strong>concise and optimized approach</strong> for handling <strong>input and output in both C++ and Python</strong>.</p>
 
