@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Input/Output in Competitive Programming</title>
+  <style>
+    @page {
+      margin: 1cm;
+      size: A4;
+    }
+    
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      max-width: 210mm; /* A4 width */
+      margin: 0 auto;
+      padding: 20px;
+      color: #f8fafc;
+      background: #1e293b;
+    }
+    
+    h1 {
+      color: #60a5fa;
+      font-size: 28pt;
+      margin-bottom: 1.5em;
+      text-align: center;
+      page-break-after: avoid;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    h2 {
+      color: #93c5fd;
+      font-size: 22pt;
+      margin-top: 2em;
+      border-bottom: 3px solid #475569;
+      padding-bottom: 0.5em;
+      page-break-after: avoid;
+    }
+    
+    h3 {
+      color: #bfdbfe;
+      font-size: 16pt;
+      page-break-after: avoid;
+      margin-top: 1.5em;
+    }
+    
+    .language-section {
+      background: #334155;
+      border-radius: 12px;
+      padding: 25px;
+      margin: 20px 0;
+      border: 1px solid #475569;
+      page-break-inside: avoid;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    pre {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 15px 0;
+      border: 1px solid #475569;
+      white-space: pre-wrap;
+      font-size: 12pt;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    code {
+      font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+      line-height: 1.5;
+    }
+
+    strong {
+      color: #60a5fa;
+      font-weight: 600;
+    }
+
+    .section {
+      page-break-inside: avoid;
+      margin: 40px 0;
+    }
+
+    p {
+      font-size: 14pt;
+      margin: 20px 0;
+      line-height: 1.8;
+    }
+
+    /* Syntax highlighting */
+    .keyword { color: #f472b6; }
+    .string { color: #a5b4fc; }
+    .comment { color: #64748b; font-style: italic; }
+    .number { color: #fbbf24; }
+  </style>
+</head>
+<body>
+  <h1>How to Read Problems and Handle Input/Output in Competitive Programming (C++ & Python)</h1>
+  
+  <p>In competitive programming, efficient input and output handling is crucial. Below is a <strong>concise and optimized approach</strong> for handling <strong>input and output in both C++ and Python</strong>.</p>
+
+  <div class="section">
+    <h2>1. Single Integer Input</h2>
+    <div class="language-section">
+      <h3>C++</h3>
+      <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    
+    int n;
+    cin >> n;
+    cout << n << "\n";
+    
+    return 0;
+}</code></pre>
+
+      <h3>Python</h3>
+      <pre><code>import sys
+
+n = int(sys.stdin.readline())
+sys.stdout.write(str(n) + "\n")</code></pre>
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>2. Multiple Space-Separated Inputs</h2>
+    <div class="language-section">
+      <h3>C++</h3>
+      <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    
+    int a, b;
+    cin >> a >> b;
+    cout << a + b << "\n";
+    
+    return 0;
+}</code></pre>
+
+      <h3>Python</h3>
+      <pre><code>import sys
+
+a, b = map(int, sys.stdin.readline().split())
+sys.stdout.write(str(a + b) + "\n")</code></pre>
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>3. Array Input (Space-Separated)</h2>
+    <div class="language-section">
+      <h3>C++</h3>
+      <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    
+    int n;
+    cin >> n;
+    
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << "\n";
+    
+    return 0;
+}</code></pre>
+
+      <h3>Python</h3>
+      <pre><code>import sys
+
+n = int(sys.stdin.readline())
+arr = list(map(int, sys.stdin.readline().split()))
+sys.stdout.write(" ".join(map(str, arr)) + "\n")</code></pre>
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>4. Multiple Line Inputs</h2>
+    <div class="language-section">
+      <h3>C++</h3>
+      <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    
+    int n;
+    cin >> n;
+    
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << "\n";
+    }
+    
+    return 0;
+}</code></pre>
+
+      <h3>Python</h3>
+      <pre><code>import sys
+
+n = int(sys.stdin.readline())
+arr = [int(sys.stdin.readline()) for _ in range(n)]
+sys.stdout.write("\n".join(map(str, arr)) + "\n")</code></pre>
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>5. Reading Large Input in One Go</h2>
+    <div class="language-section">
+      <h3>C++</h3>
+      <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    
+    int n;
+    cin >> n;
+    
+    string s;
+    cin.ignore();
+    getline(cin, s);
+    cout << s << "\n";
+    
+    return 0;
+}</code></pre>
+
+      <h3>Python</h3>
+      <pre><code>import sys
+
+data = sys.stdin.read().split()
+n = int(data[0])
+arr = list(map(int, data[1:]))
+sys.stdout.write(" ".join(map(str, arr)) + "\n")</code></pre>
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>6. Fast Output (Multiple Values)</h2>
+    <div class="language-section">
+      <h3>C++</h3>
+      <pre><code>#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    
+    int n;
+    cin >> n;
+    
+    ostringstream out;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        out << x << " ";
+    }
+    
+    cout << out.str() << "\n";
+    return 0;
+}</code></pre>
+
+      <h3>Python</h3>
+      <pre><code>import sys
+
+n = int(sys.stdin.readline())
+arr = list(map(int, sys.stdin.readline().split()))
+sys.stdout.write(" ".join(map(str, arr)) + "\n")</code></pre>
+    </div>
+  </div>
+
+  <p>This combined approach ensures <strong>maximum efficiency in competitive programming</strong> using <strong>C++ and Python</strong>. 🚀</p>
+
+</body>
+</html>
